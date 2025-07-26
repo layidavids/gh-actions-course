@@ -1,6 +1,8 @@
 name: python-django-cyph3r-build
 on:
-    workflow_dispatch:
+    pull_request:
+        branches:
+            - main
 
 jobs:
     build:
