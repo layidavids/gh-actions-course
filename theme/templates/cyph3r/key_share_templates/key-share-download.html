@@ -1,0 +1,30 @@
+{% extends 'cyph3r/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block content %}
+<div class="bg-gradient-to-b from-orange-100 via-orange-50 to-white dark:bg-gradient-to-b dark:from-slate-400 dark:via-slate-600 dark:to-slate-800 flex flex-col min-h-screen justify-center items-center w-full">
+    <div class="w-full justify-center items-start flex flex-col gap-4 max-w-md p-8 shadow-md bg-white dark:bg-slate-800 rounded-lg">
+            <div>
+                <p class="text-start font-font-sans dark:text-white font-semibold text-xs">{% translate "DOWNLOADS" %}</p>
+                <ul>
+                {% for secret_file in secret_files %}
+                    <li>
+                    <a href="{{ MEDIA_URL }}{{ request.session.session_key }}/{{ secret_file }}" download="{{ secret_file }}" class="w-full mt-4 underline underline-offset-4 font-palanquin  decoration-blue-600 text-blue-600 text-xs">
+                        {{ secret_file }}
+                    </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>  
+        <div class="flex self-end"> 
+            <a href={% url 'index' %}>
+                <button type="button" class="dark:bg-cyan-500 dark:hover:bg-cyan-400 bg-orange-500 hover:bg-orange-400 text-white text-xs mt-2 px-6 py-2 rounded-lg transition">
+                    {% translate "Home" %}
+                </button>
+            </a>            
+        </div>          
+    </div>
+</div>
+{% endblock %}

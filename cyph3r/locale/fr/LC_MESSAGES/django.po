@@ -1,0 +1,382 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-25 12:57-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: cyph3r/forms.py:43
+msgid "size must be less than 5KB."
+msgstr "la taille doit être inférieure à 5 Ko."
+
+#: cyph3r/forms.py:48
+msgid "This is not a PGP public key"
+msgstr "Ce n'est pas une clé publique PGP"
+
+#: cyph3r/forms.py:56
+msgid "This is not PGP ASCII armored."
+msgstr "Ce n'est pas du PGP ASCII blindé."
+
+#: cyph3r/forms.py:68
+#, python-brace-format
+msgid "Upload {count} PGP public keys."
+msgstr "Téléchargez {count} clés publiques PGP."
+
+#: cyph3r/forms.py:75
+msgid "Invalid Name for GCP Resource."
+msgstr "Nom non valide pour la ressource GCP."
+
+#: cyph3r/forms.py:80
+msgid "Value must be a hexadecimal string."
+msgstr "La valeur doit être une chaîne hexadécimale."
+
+#: cyph3r/forms.py:85
+msgid "Value must be either 128 | 192 | 256 bits."
+msgstr "La valeur doit être soit 128 | 192 | 256 bits."
+
+#: cyph3r/forms.py:90
+msgid "Value must be 96 bits."
+msgstr "La valeur doit être de 96 bits."
+
+#: cyph3r/forms.py:103
+msgid "Key Identifier"
+msgstr "Identificateur de clé"
+
+#: cyph3r/forms.py:107
+msgid "Enter a unique key identifier."
+msgstr "Entrez un identifiant de clé unique."
+
+#: cyph3r/forms.py:112
+msgid "Transport Key"
+msgstr "Clé de transport"
+
+#: cyph3r/forms.py:113
+msgid "Operator (OP) Key"
+msgstr "Clé opérateur (OP)"
+
+#: cyph3r/forms.py:118
+msgid "Key Type"
+msgstr "Type de clé"
+
+#: cyph3r/forms.py:119
+msgid "Select the key type."
+msgstr "Sélectionnez le type de clé."
+
+#: cyph3r/forms.py:130
+msgid "Protocol"
+msgstr "Protocole"
+
+#: cyph3r/forms.py:131
+msgid "Select the protocol."
+msgstr "Sélectionnez le protocole."
+
+#: cyph3r/forms.py:143
+msgid "Key Size"
+msgstr "Taille de clé"
+
+#: cyph3r/forms.py:144
+msgid "Select the key size."
+msgstr "Sélectionnez la taille de la clé."
+
+#: cyph3r/forms.py:157
+msgid "The Milenage protocol only supports 128-bit OP keys."
+msgstr "Le protocole Milenage ne prend en charge que les clés OP de 128 bits."
+
+#: cyph3r/forms.py:165
+msgid "GCP Project ID"
+msgstr "ID du projet GCP"
+
+#: cyph3r/forms.py:168
+msgid "Project ID to store secrets and access KMS key"
+msgstr "ID de projet pour stocker les secrets et accéder à la clé KMS"
+
+#: cyph3r/forms.py:172
+msgid "KMS Keyring"
+msgstr "Porte-clés KMS"
+
+#: cyph3r/forms.py:175
+msgid "GCP KMS key ring name"
+msgstr "Nom du trousseau de clés GCP KMS"
+
+#: cyph3r/forms.py:179
+msgid "KMS Key"
+msgstr "Clé KMS"
+
+#: cyph3r/forms.py:182
+msgid "GCP KMS key name"
+msgstr "Nom de la clé GCP KMS"
+
+#: cyph3r/forms.py:212
+msgid "Security Officers Public Keys"
+msgstr "Clés publiques des agents de sécurité"
+
+#: cyph3r/forms.py:214
+msgid "Upload 5 PGP Public keys for 3 of 5 shamir secret sharing"
+msgstr "Téléchargez 5 clés publiques PGP pour 3 des 5 partages secrets Shamir"
+
+#: cyph3r/forms.py:218
+msgid "Provider Public Keys"
+msgstr "Clés publiques du fournisseur"
+
+#: cyph3r/forms.py:220
+msgid "Upload 3 Provider PGP Public keys"
+msgstr "Télécharger 3 clés publiques PGP du fournisseur"
+
+#: cyph3r/forms.py:224
+msgid "Fallback Public Keys"
+msgstr "Clés publiques de secours"
+
+#: cyph3r/forms.py:226
+msgid "Upload 2 Yubikey PGP Public keys"
+msgstr "Téléchargez 2 clés publiques Yubikey PGP"
+
+#: cyph3r/forms.py:230
+msgid "Milenage Public Key"
+msgstr "Clé publique Milenage"
+
+#: cyph3r/forms.py:232
+msgid "Upload PGP public key to wrap milenage keys"
+msgstr "Téléchargez la clé publique PGP pour envelopper les clés de milenage"
+
+#: cyph3r/forms.py:236
+msgid "Cloud Storage"
+msgstr "Stockage en nuage"
+
+#: cyph3r/forms.py:238
+msgid "Store encrypted secrets in GCP Storage Bucket"
+msgstr "Stocker les secrets chiffrés dans le bucket de stockage GCP"
+
+#: cyph3r/forms.py:276
+msgid "Key Index"
+msgstr "Index clé"
+
+#: cyph3r/forms.py:280
+msgid "Shamir key index."
+msgstr "Index des clés Shamir."
+
+#: cyph3r/forms.py:289 cyph3r/forms.py:310
+msgid "Key Share (HEXADECIMAL STRING)"
+msgstr "Partage de clé (CHAÎNE HEXADÉCIMALE)"
+
+#: cyph3r/forms.py:290 cyph3r/forms.py:311
+msgid "Enter 128 or 256 (only xor) bit key."
+msgstr "Entrez la clé de bits 128 ou 256 (uniquement xor)."
+
+#: cyph3r/forms.py:327
+msgid "Select a scheme"
+msgstr "Sélectionnez un schéma"
+
+#: cyph3r/forms.py:334
+msgid "Scheme"
+msgstr "Schème"
+
+#: cyph3r/forms.py:340
+msgid "Select a Task"
+msgstr "Sélectionnez une tâche"
+
+#: cyph3r/forms.py:341
+msgid "Split Key"
+msgstr "Clé partagée"
+
+#: cyph3r/forms.py:342
+msgid "Reconstruct Key"
+msgstr "Clé de reconstruction"
+
+#: cyph3r/forms.py:347
+msgid "Task"
+msgstr "Tâche"
+
+#: cyph3r/forms.py:353
+msgid "Share Count"
+msgstr "Nombre de partages"
+
+#: cyph3r/forms.py:357
+msgid "Total number of key shares."
+msgstr "Nombre total d'actions clés."
+
+#: cyph3r/forms.py:362
+msgid "Threshold Count"
+msgstr "Nombre de seuils"
+
+#: cyph3r/forms.py:366
+msgid "Minimum number of key shares for key reconstruction."
+msgstr "Nombre minimum de partages de clés pour la reconstruction de clé."
+
+#: cyph3r/forms.py:372 cyph3r/forms.py:528
+msgid "PGP Encrypt"
+msgstr "Chiffrement PGP"
+
+#: cyph3r/forms.py:373
+#, fuzzy
+#| msgid "Encrypt output with PGP public key."
+msgid "Encrypt output with PGP public key(s)."
+msgstr "Chiffrez la sortie avec la clé publique PGP."
+
+#: cyph3r/forms.py:377
+msgid "Key Share Public Keys"
+msgstr "Clés publiques de partage de clés"
+
+#: cyph3r/forms.py:379
+msgid "Upload PGP Public key(s)"
+msgstr "Télécharger la ou les clés publiques PGP"
+
+#: cyph3r/forms.py:406 cyph3r/forms.py:417
+msgid "Threshold count is required for Shamir Secret Shares."
+msgstr "Un décompte de seuil est requis pour les actions secrètes Shamir."
+
+#: cyph3r/forms.py:412
+msgid "Share count is required for Shamir Secret Shares."
+msgstr "Le décompte des partages est requis pour les partages secrets Shamir."
+
+#: cyph3r/forms.py:424
+msgid "Threshold count must be less than or equal to the share count."
+msgstr "Le nombre de seuils doit être inférieur ou égal au nombre de partages."
+
+#: cyph3r/forms.py:429
+msgid "Share count is required for XOR key shares."
+msgstr "Le nombre de partages est requis pour les partages de clés XOR."
+
+#: cyph3r/forms.py:439
+msgid "Total number of public key files must be equal to the share count."
+msgstr ""
+"Le nombre total de fichiers de clé publique doit être égal au nombre de "
+"partages."
+
+#: cyph3r/forms.py:448
+msgid "Only one PGP Public key file is required for reconstruction."
+msgstr "Un seul fichier de clé publique PGP est requis pour la reconstruction."
+
+#: cyph3r/forms.py:467
+msgid "AEAD Scheme"
+msgstr "AEAD Schème"
+
+#: cyph3r/forms.py:474
+msgid "Encrypt"
+msgstr "Chiffrer"
+
+#: cyph3r/forms.py:475
+msgid "Decrypt"
+msgstr "Décrypter"
+
+#: cyph3r/forms.py:481
+msgid "Operation"
+msgstr "Opération"
+
+#: cyph3r/forms.py:491
+msgid "Key"
+msgstr "Clé"
+
+#: cyph3r/forms.py:492
+msgid "Encryption | Decryption Key."
+msgstr "Cryptage | Clé de décryptage"
+
+#: cyph3r/forms.py:497
+msgid "ADDITIONAL AUTHENTICATED DATA (AAD)"
+msgstr "DONNÉES AUTHENTIFIÉES SUPPLÉMENTAIRES (AAD)"
+
+#: cyph3r/forms.py:506
+msgid "NONCE"
+msgstr "NONCE"
+
+#: cyph3r/forms.py:507
+msgid "12 bytes Nonce (Hex)"
+msgstr "12 octets Nonce (Hex)"
+
+#: cyph3r/forms.py:514
+msgid "CIPHERTEXT (HEX)"
+msgstr "TEXTE CHIFFRÉ (HEX)"
+
+#: cyph3r/forms.py:521
+msgid "PLAINTEXT"
+msgstr "TEXTE DE PLAINTE"
+
+#: cyph3r/forms.py:529
+msgid "Encrypt output with PGP public key."
+msgstr "Chiffrez la sortie avec la clé publique PGP."
+
+#: cyph3r/forms.py:534
+msgid "name"
+msgstr "nom"
+
+#: cyph3r/forms.py:538
+msgid "Identifier for PGP encrypted file."
+msgstr "Identifiant du fichier chiffré PGP"
+
+#: cyph3r/forms.py:544
+msgid "PGP Public Key"
+msgstr "Clé publique PGP"
+
+#: cyph3r/forms.py:545
+msgid "Upload PGP Public key to encrypt output"
+msgstr "Téléchargez la clé publique PGP pour chiffrer la sortie"
+
+#: cyph3r/forms.py:586
+msgid "Provide a name and upload a public key."
+msgstr "Fournissez un nom et téléchargez une clé publique."
+
+#: cyph3r/forms.py:588
+msgid "Upload a public key."
+msgstr "Télécharger une clé publique"
+
+#: cyph3r/forms.py:590
+msgid "Provide a name."
+msgstr "Donnez un nom."
+
+#: cyph3r/forms.py:594
+msgid "ChaCha20-Poly1305 supports only 256 bit keys."
+msgstr "ChaCha20-Poly1305 ne prend en charge que les clés de 256 bits."
+
+#: cyph3r/forms.py:607
+msgid "KEY"
+msgstr "CLÉ"
+
+#: cyph3r/forms.py:608
+msgid "PASSWORD"
+msgstr "MOT DE PASSE"
+
+#: cyph3r/forms.py:609
+msgid "URL STRINGS"
+msgstr "CHAÎNES D'URL"
+
+#: cyph3r/forms.py:614
+msgid "What would you like to generate?"
+msgstr "Que souhaiteriez-vous générer?"
+
+#: cyph3r/forms.py:619
+msgid "Password Length"
+msgstr "Longueur du mot de passe"
+
+#: cyph3r/forms.py:661
+msgid "Token Length"
+msgstr "Longueur du jeton"
+
+#: cyph3r/forms.py:678
+msgid ""
+"At least one of uppercase, lowercase, digits, or special characters must be "
+"selected."
+msgstr ""
+"Au moins un des caractères majuscules, minuscules, chiffres ou spéciaux doit "
+"être choisi."
+
+#: cyph3r/forms.py:684
+msgid "Token length is required."
+msgstr "La longueur du jeton est requise."
+
+#~ msgid "AES Mode"
+#~ msgstr "Mode AES"
+
+#~ msgid "AES Key"
+#~ msgstr "Clé AES"

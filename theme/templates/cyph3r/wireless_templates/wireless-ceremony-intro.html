@@ -1,0 +1,51 @@
+{% extends 'cyph3r/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block content %}
+<div class="bg-gradient-to-b from-orange-100 via-orange-50 to-white dark:bg-gradient-to-b dark:from-slate-400 dark:via-slate-600 dark:to-slate-800 flex flex-col min-h-screen justify-center items-center w-full">       
+    <div id="container" class="bg-white dark:bg-slate-800 ring-1 ring-slate-50 text-sans dark:ring-slate-800 dark:text-white shadow-md rounded-lg px-8 py-2 mt-3 max-w-4xl w-full">
+        <div class="w-full p-2">
+                <h1 class="text-lg font-bold text-center font-sans dark:text-white text-black">{% translate "A Sample Key Ceremony" %}</h1>
+                    <h2 class="text-base font-bold font-sans">{% translate "Objective" %}</h2>
+                        <p class="text-xxs font-sans text-gray-600 dark:text-slate-300 pb-1">{% translate "Secure generation and protection of four keys e.g. keys used in wireless networks:" %}</p>
+
+                                <p class="font-sans text-xxs block text-gray-600 dark:text-slate-300 pl-4">{% translate " - Tuak TOP and Transport Keys" %}</p>
+                                <p class="font-sans text-xxs block text-gray-600 dark:text-slate-300 pl-4">{% translate " - Milenage OP and Transport Keys" %}</p>
+                        
+                        <p class="text-xxs font-sans text-gray-600 dark:text-slate-300 pb-1 pt-1">{% translate "We assume the following requirements:" %}</p>
+
+                    
+                        <h3 class="font-bold text-sm pt-1">{% translate "Three SIM Provider Public Keys" %}</h3>
+                            <p class="text-xxs font-sans text-gray-600 dark:text-slate-300">{% translate "The PGP public keys for the SIM provider are required to encrypt the 3 XOR key shares generated for each wireless keys. The provider will reconstruct each key after decypting the shares with their private keys." %}</p>
+
+                        <h3 class="font-bold pt-2 font-sans text-sm">{% translate "Five Security Officer Public Keys" %}</h3>
+                            <p class="text-xxs text-gray-600 dark:text-slate-300 font-sans">{% translate "A unique 128-bit wrap key is generated for each wireless key. The wrap key is used to wrap/encrypt its associated wireless key. Each wrap key is then split into 5 shares using " %}<strong>{% translate "Shamir Secret Splitting (SSS)" %}</strong>{% translate ". Each of these shares will be encrypted with a PGP public key belonging to a security officer. Three security officers will be required to reconstruct this wrap key which in turn can be used to decrypt its wireless key." %}</p>
+
+                        <h3 class="font-bold pt-2 font-sans text-sm">{% translate "Two Yubikey Public Keys" %}</h3>
+                            <p class="text-xxs text-gray-600 dark:text-slate-300 font-sans">{% translate "These are the backup/fallback keys that will be used to protect/encrypt the wireless keys. In the event that the number of available Security Officers do not meet the threshold to decrypt the key, this will be used for decryption. Each Yubikey and its encrypted artifacts will be stored in a safety deposit box in two different locations." %}</p>
+
+                        <h3 class="font-bold text-sm font-sans pt-2">{% translate "Two Public Keys for Milenage" %}</h3>
+                            <p class="text-xxs text-gray-600 font-sans dark:text-slate-300 pb-2">{% translate "The milenage key will be entered at the terminal of the network provider. To mitigate the risk of both milenage keys been known by a single resource, two public keys belonging to two different resources will be provided. One to encrypt the milenage Transport key and the other to encrypt the milenage OP key." %}</p>
+                
+                    <p class="text-xxs text-gray-600 font-sans dark:text-slate-300 pt-1">{% translate "This app only accepts PGP public key files that are in the " %}<strong>{% translate "ASCII armored format" %}</strong>{% translate " i.e. the contents of each public key file must have the begin and end headers of" %}   
+                        <span class="bg-gray-200 dark:bg-gray-700 dark:text-slate-300 px-1 text-xxs font-sans border dark:border-gray-700 border-gray-300 rounded shadow-md text-gray-800">-----
+                        BEGIN PGP PUBLIC KEY BLOCK-----</span>{% translate " and " %}<span class="bg-gray-200 dark:bg-gray-700 dark:border-gray-700 dark:text-slate-300 border border-gray-300 b-1 px-1 text-xxs font-sans rounded shadow-md text-gray-800">-----END PGP PUBLIC KEY BLOCK-----</span>{% translate " respectively." %}</li></ul></p>
+    
+                    
+                </div>
+                <!-- Submit Button -->
+                <a href={% url 'wireless-key-info' %} class="flex justify-end">
+                    <button type="button" class="bg-orange-500 dark:bg-cyan-500 dark:hover:bg-cyan-400 hover:bg-orange-400 text-white text-sm px-3 pt-2 mb-2 pb-2 rounded-lg transition">
+                        {% translate "Get Started" %}
+                    </button>
+                </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+

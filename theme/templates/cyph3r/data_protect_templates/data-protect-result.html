@@ -1,0 +1,26 @@
+{% extends 'cyph3r/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block content %}
+<div class="bg-gradient-to-b from-orange-100 via-orange-50 to-white dark:bg-gradient-to-b dark:from-slate-400 dark:via-slate-600 dark:to-slate-800 flex flex-col min-h-screen justify-center items-center w-full">
+    <div class="w-full justify-center items-start flex flex-col max-w-3xl gap-4 p-8 shadow-md dark:bg-slate-800 bg-white rounded-lg">
+        <div class="dark:text-white font-sans text-sm w-full text-start overflow-hidden">
+            <p class="pt-2 pb-2"><span class="font-bold">{% translate "Mode" %}:</span><br /> AES-{{ operation_output.aead_mode | upper }}</p>
+            <p class="pt-2 pb-2"><span class="font-bold">Nonce:</span><br /> {{ operation_output.nonce }}</p>
+            {% if operation_output.aad %}
+                <p class="pt-2 pb-2"><span class="font-bold">AAD:</span><br /> {{ operation_output.aad }}</p>
+            {% endif %}
+            <p class="pt-2 pb-2 whitespace-normal break-words"><span class="font-bold">{% translate "Result" %}:</span><br /> {{ operation_output.aead_output }}</p>           
+        </div>     
+        <div class="flex self-end"> 
+            <a href={% url 'index' %}>
+                <button type="button" class="dark:bg-cyan-500 dark:hover:bg-cyan-400 bg-orange-500 hover:bg-orange-400 text-white text-xs mt-2 px-6 py-2 rounded-lg transition">
+                    {% translate "Home" %}
+                </button>
+            </a>            
+        </div>            
+    </div>
+</div>
+{% endblock %}

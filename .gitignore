@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+*.egg-info/
+*.egg
+*.log
+
+# Django
+*.sqlite3
+db.sqlite3
+*.pot
+*.pyc
+*.mo
+*.log
+
+# Django static/media files
+/staticfiles/
+/media/
+/static/
+/build/
+/dist/
+
+# Django migrations
+**/migrations/
+**/migrations/*.pyc
+**/migrations/*.py
+
+# Environment
+.env
+.venv/
+env/
+venv/
+ENV/
+*.env
+*.env.*
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windo

@@ -1,0 +1,166 @@
+{% extends 'cyph3r/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block content %}
+<div class="bg-gradient-to-b from-orange-100 via-orange-50 to-white dark:bg-gradient-to-b dark:from-slate-400 dark:via-slate-600 dark:to-slate-800 flex flex-col min-h-screen justify-center items-center w-full">
+    <div class="relative flex justify-center items-center w-full">        
+        <div id="form" class="w-full max-w-lg p-16">
+            <!-- Form Start -->
+            <form method="POST" enctype="multipart/form-data" class="w-full bg-white dark:bg-slate-800 shadow-md rounded-lg px-4 pt-6 pb-6">
+                <div class="mb-2">
+                {% csrf_token %}
+                    <!-- Non-field Errors -->
+                    {% if form.non_field_errors %}
+                    <span class="text-red-500 text-xs"> {{ form.non_field_errors }}</span>
+                    {% endif %}
+
+                    <!-- Visible Fields -->
+
+                    {% for field in form.visible_fields %}
+                        <!-- Hide share count and threshold count fields -->
+                        {% if field.name == "password_length" %}
+                            <div id="password_length" class="mb-4 {% if not field.errors %}hidden{% endif %}">
+                                <label for="{{ field.id_for_label}}" class="block dark:text-slate-300 text-gray-500 text-xs font-semibold mb-1">{{ field.label|upper }}</label>
+                                {{ field|add_class:"bg-gray-200 text-xs appearance-none border-2 border-gray-200 px-2 py-1 rounded w-full slider leading-tight focus:outline-none focus:bg-white focus:ring-0 dark:focus:border-cyan-500 focus:border-orange-500" }}
+                                <span id="password_length_value" class="text-xs text-gray-500 dark:text-slate-300">{{ field.value }}</span>
+                                <div class="text-xs text-gray-500 dark:text-slate-300">{{ field.help_text }}</div> 
+                                {% if field.errors %}
+                                    <span class="text-red-500 text-xs">
+                                        {% for error in field.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                {% endif %}
+                            </div>
+                        {% elif field.name == "lowercase" %}
+                            <div id="password_lowercase" class="mb-4 {% if not field.errors %}hidden{% endif %}">
+                                <div class="flex justify-between">
+                                    <label for="{{ field.id_for_label}}" class="block text-gray-500 lowercase dark:text-slate-300 text-xs font-semibold mb-1">{{ field.label|upper }}</label>
+                                    {{ field|add_class:"bg-gray-200 text-xs appearance-none border-2 border-gray-200 px-2 py-1 rounded text-gray-500 leading-tight focus:outline-none focus:bg-white focus:ring-0 dark:focus:border-cyan-500 focus:border-orange-500" }}
+                                </div>
+                                <div class="text-xs text-gray-500 dark:text-slate-300">{{ field.help_text }}</div> 
+                                {% if field.errors %}
+                                    <span class="text-red-500 text-xs">
+                                        {% for error in field.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                {% endif %}
+                            </div>
+                        {% elif field.name == "uppercase" %}
+                            <div id="password_uppercase" class="mb-4 {% if not field.errors %}hidden{% endif %}">
+                                <div class="flex justify-between">
+                                    <label for="{{ field.id_for_label}}" class="block text-gray-500 dark:text-slate-300 text-xs font-semibold mb-1">{{ field.label|upper }}</label>
+                                    {{ field|add_class:"bg-gray-200 text-xs appearance-none border-2 border-gray-200 px-2 py-1 rounded text-gray-500 leading-tight focus:outline-none focus:bg-white focus:ring-0 dark:focus:border-cyan-500 focus:border-orange-500" }}
+                                </div>
+                                <div class="text-xs text-gray-500 dark:text-slate-300">{{ field.help_text }}</div> 
+                                {% if field.errors %}
+                                    <span class="text-red-500 text-xs">
+                                        {% for error in field.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                {% endif %}
+                            </div>
+                        {% elif field.name == "special_chars" %}
+                            <div id="password_special" class="mb-4 {% if not field.errors %}hidden{% endif %}">
+                                <div class="flex justify-between">
+                                    <label for="{{ field.id_for_label}}" class="block text-gray-500 dark:text-slate-300 text-xs font-semibold mb-1">{{ field.label|upper }}</label>
+                                    {{ field|add_class:"bg-gray-200 text-xs appearance-none border-2 border-gray-200 px-2 py-1 rounded text-gray-500 leading-tight focus:outline-none focus:bg-white focus:ring-0 dark:focus:border-cyan-500 focus:border-orange-500" }}
+                                </div>
+                                <div class="text-xs text-gray-500 dark:text-slate-300">{{ field.help_text }}</div> 
+                                {% if field.errors %}
+                                    <span class="text-red-500 text-xs">
+                                        {% for error in field.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                {% endif %}
+                            </div>
+                        {% elif field.name == "digits" %}
+                            <div id="password_digits" class="mb-4 {% if not field.errors %}hidden{% endif %}">
+                                <div class="flex justify-between">
+                                    <label for="{{ field.id_for_label}}" class="block text-gray-500 dark:text-slate-300 text-xs font-semibold mb-1">{{ field.label|upper }}</label>
+                                    {{ field|add_class:"bg-gray-200 text-xs appearance-none border-2 border-gray-200 px-2 py-1 rounded text-gray-500 leading-tight focus:outline-none focus:bg-white focus:ring-0 dark:focus:border-cyan-500 focus:border-orange-500" }}
+                                </div>
+                                <div class="text-xs text-gray-500 dark:text-slate-300">{{ field.help_text }}</div> 
+                                {% if field.errors %}
+                                    <span class="text-red-500 text-xs">
+                                        {% for error in field.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                {% endif %}
+                            </div>
+                        {% elif field.name == "token_length" %}
+                            <div id="token_length" class="mb-4 {% if not field.errors %}hidden{% endif %}">
+                                <label for="{{ field.id_for_label}}" class="block text-gray-500 dark:text-slate-300 text-xs font-semibold mb-1">{{ field.label|upper }}</label>
+                                {{ field|add_class:"bg-gray-200 text-xs appearance-none border-2 border-gray-200 px-2 py-1 rounded w-full text-gray-500 leading-tight focus:outline-none focus:bg-white focus:ring-0 dark:focus:border-cyan-500 focus:border-orange-500"  }}
+                                <div class="text-xs text-gray-500 dark:text-slate-300">{{ field.help_text }}</div> 
+                                {% if field.errors %}
+                                    <span class="text-red-500 text-xs">
+                                        {% for error in field.errors %}
+                                        {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                {% endif %}
+                            </div>
+                        {% else %}
+                        <!-- Render other fields -->
+                        <div class="mb-4">
+                            <label for="{{ field.id_for_label}}" class="block text-gray-500 dark:text-slate-300 text-xs font-semibold mb-1">{{ field.label|upper }}</label>
+                            {{ field|add_class:"bg-gray-200 text-xs appearance-none border-2 border-gray-200 px-2 py-1 rounded w-full text-gray-500 leading-tight focus:outline-none focus:bg-white focus:ring-0 dark:focus:border-cyan-500 focus:border-orange-500" }}
+                            <div class="text-xs text-gray-500 dark:text-slate-300">{{ field.help_text }}</div> 
+                            {% if field.errors %}
+                                <span class="text-red-500 text-xs">
+                                    {% for error in field.errors %}
+                                    {{ error }}
+                                    {% endfor %}
+                                </span>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    <!-- Buttons -->
+                    <div class="flex justify-between">
+                            <a href={% url 'index' %}>
+                                <button type="button" class="dark:bg-cyan-500 dark:hover:bg-cyan-400 bg-orange-500 hover:bg-orange-400 text-white text-xs mt-2 px-6 py-2 rounded-lg transition">
+                                    {% translate "Back" %}
+                                </button>
+                            </a>
+                            <button type="submit" class="dark:bg-cyan-500 dark:hover:bg-cyan-400 bg-orange-500 hover:bg-orange-400 text-white text-xs mt-2 px-6 py-2 rounded-lg transition">
+                                {% translate "Next" %}
+                            </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Script to show/hide share count and threshold count fields based on user selection -->
+<script type="text/hyperscript">
+    def checkTokenSelections() 
+        if (#id_token.value == "key" or #id_token.value == "url") 
+            then remove .hidden from #token_length
+            then add .hidden to #password_length
+            then add .hidden to #password_lowercase
+            then add .hidden to #password_uppercase
+            then add .hidden to #password_special
+            then add .hidden to #password_digits
+        else if (#id_token.value == "password") 
+            then remove .hidden from #password_length
+            then remove .hidden from #password_lowercase
+            then remove .hidden from #password_uppercase
+            then remove .hidden from #password_special
+            then remove .hidden from #password_digits
+            then add .hidden to #token_length
+    end
+
+    on change from #id_token call checkTokenSelections()
+    on load call checkTokenSelections()
+
+</script>
+{% endblock %}

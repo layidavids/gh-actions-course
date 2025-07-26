@@ -1,0 +1,21 @@
+{% extends 'cyph3r/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+<div class="bg-slate-200 flex flex-col min-h-screen justify-center items-center w-full"> 
+    <div id="container" class="bg-white shadow-md rounded-lg px-8 py-4 max-w-4xl w-full">
+        <div class="w-full p-1">
+                <h1 class="text-xl font-semibold text-center text-gray-700 leading-8 font-sans ">Forbidden (403)</h1>
+                <div class="text-gray-600 font-sans text-md mt-4 mb-4">
+                    <p class="pb-4">Forbidden</p>
+                    
+                    <p class="pt-4 pb-4">You do not have permission to access this resource.</p>
+                </div>
+
+                <a href="{% url 'index' %}" class="text-orange-500">Go back to the homepage</a>     
+               
+        </div>
+    </div>
+</div>
+{% endblock %}

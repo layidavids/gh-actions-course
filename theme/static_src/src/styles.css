@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slider {
+    @apply
+    [&::-webkit-slider-thumb]:appearance-none 
+    [&::-webkit-slider-thumb]:h-4 
+    [&::-webkit-slider-thumb]:w-4 
+    [&::-webkit-slider-thumb]:rounded-full 
+    [&::-webkit-slider-thumb]:bg-orange-500
+    [&::-webkit-slider-thumb]:dark:bg-cyan-500
+    [&::-moz-range-thumb]:bg-orange-500
+    [&::-moz-range-thumb]:dark:bg-cyan-500;
+  }

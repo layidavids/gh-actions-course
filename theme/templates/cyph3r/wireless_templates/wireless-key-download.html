@@ -1,0 +1,66 @@
+{% extends 'cyph3r/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+{% load i18n %}
+
+<div class="bg-gradient-to-b from-orange-100 via-orange-50 to-white dark:bg-gradient-to-b dark:from-slate-400 dark:via-slate-600 dark:to-slate-800 flex flex-col min-h-screen justify-center items-center w-full">
+     <div class="justify-center items-start flex flex-col dark:text-slate-200 gap-4 max-w-5xl p-8 shadow-md bg-white dark:bg-slate-800  rounded-lg">
+            <div>
+                <p class="text-start font-palanquin font-semibold text-xs">{% translate "Security Officers Keys" %}</p>
+                <ul>
+                {% for security_officer_file in security_officer_files %}
+                    <li>
+                    <a href="{{ MEDIA_URL }}{{ security_officer_file }}" download="{{ security_officer_file }}" class="w-full mt-4 underline underline-offset-4 font-palanquin  decoration-blue-600 text-blue-600 text-xs">
+                        {{ security_officer_file }}
+                    </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div>
+                <p class="text-start font-palanquin font-semibold  text-xs">{% translate "Provider Keys" %}</p>
+                <ul>
+                {% for provider_file in provider_files %}
+                    <li>
+                    <a href="{{ MEDIA_URL }}{{ provider_file }}" download="{{ provider_file }}" class="w-full mt-4 underline underline-offset-4 font-palanquin  decoration-blue-600 text-blue-600 text-xs">
+                        {{ provider_file}}
+                    </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+             <div>
+                <p class="text-start font-palanquin font-semibold  text-xs">{% translate "Yubikey Fallback Keys" %}</p>
+                <ul>
+                {% for fallback_file in fallback_yubikey_files %}
+                    <li>
+                    <a href="{{ MEDIA_URL }}{{ fallback_file }}" download="{{ fallback_file }}" class="w-full mt-4 underline underline-offset-4 font-palanquin  decoration-blue-600 text-blue-600 text-xs">
+                        {{ fallback_file}}
+                    </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div>
+                <p class="text-start font-palanquin font-semibold text-xs">{% translate "Wrapped Key" %}</p>
+                    <a href="{{ MEDIA_URL }}{{ wrapped_secret_key_file }}" download="{{ wrapped_secret_key_file }}" class="w-full mt-4 underline underline-offset-4 font-palanquin  decoration-blue-600 text-blue-600 text-xs">
+                        {{ wrapped_secret_key_file }}
+                    </a>
+            </div>
+            {% if milenage_file %}
+            <div>
+                <p class="text-start font-palanquin font-semibold text-xs">{% translate "Milenage Key" %}</p>
+                <a href="{{ MEDIA_URL }}{{ milenage_file }}" download="{{ milenage_file }}" class="w-full mt-1 underline font-palanquin underline-offset-4 decoration-blue-600 text-blue-600 text-xs">
+                    {{ milenage_file|capfirst }}
+                </a>
+            </div>
+            {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+
+    
+   

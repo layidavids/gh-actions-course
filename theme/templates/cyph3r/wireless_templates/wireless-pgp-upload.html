@@ -1,0 +1,76 @@
+{% extends 'cyph3r/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+{% load i18n %}
+
+<div class="bg-gradient-to-b from-orange-100 via-orange-50 to-white dark:bg-gradient-to-b dark:from-slate-400 dark:via-slate-600 dark:to-slate-800 flex flex-col min-h-screen justify-center items-center w-full">
+    <div id="form" class="w-full flex justify-center items-center p-2">
+        <!-- Form Start -->
+        <form method="POST" enctype="multipart/form-data" class="w-full max-w-sm bg-white dark:bg-slate-800 shadow-md rounded-lg px-4 pt-4 pb-4">
+            <div class="mb-2">
+                {% csrf_token %}
+                <!-- Hidden Fields -->
+                {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+                {% endfor %}
+
+                <!-- Non-field Errors -->
+                {% if form.non_field_errors %}
+                <span class="text-red-500 text-xs"> {{ form.non_field_errors }}</span>
+                {% endif %}
+
+                <!-- Visible Fields -->
+                {% for field in form.visible_fields %}
+                    {% if field.name == "upload_to_cloud_storage" %}
+                        <div class="mb-4">
+                            <div class="flex flex-row gap-2">
+                                <label for="{{ field.id_for_label}}" class="block text-gray-500 dark:text-slate-300 text-xs font-semibold mb-1">{{ field.label|upper }}</label>
+                                {{ field|add_class:"bg-gray-200 text-xs appearance-none border-2 border-gray-200 px-2 py-1 rounded dark:text-black text-gray-500 leading-tight focus:outline-none focus:bg-white focus:ring-0 dark:focus:border-cyan-500 focus:border-orange-500" }}
+                            </div>
+                            <div class="text-xs dark:text-slate-300 text-gray-500">{{ field.help_text }}</div> 
+
+                            {% if field.errors %}
+                            <span class="text-red-500 text-xs">
+                                {% for error in field.errors %}
+                                {{ error }}<br />
+                                {% endfor %}
+                            </span>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <div class="mb-4">
+                            <label for="{{ field.id_for_label}}" class="block text-gray-500 dark:text-slate-300 text-xs font-semibold mb-1">{{ field.label|upper }}</label>
+                            {{ field|add_class:"bg-gray-200 text-xs appearance-none border-2 border-gray-200 px-2 py-1 rounded w-full dark:text-black text-gray-500 leading-tight focus:outline-none focus:bg-white focus:ring-0 dark:focus:border-cyan-500 focus:border-orange-500" }}
+                            <div class="text-xs dark:text-slate-300 text-gray-500">{{ field.help_text }}</div> 
+
+                            {% if field.errors %}
+                            <span class="text-red-500 text-xs">
+                                {% for error in field.errors %}
+                                {{ error }}<br />
+                                {% endfor %}
+                            </span>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <!-- Buttons -->
+                <div class="flex justify-between">
+                    <a href = {% url 'wireless-key-info' %}>
+                        <button id="back" type="button" class="bg-orange-500 dark:bg-cyan-500 hover:bg-orange-400 text-white text-xs mt-2 px-6 py-2 rounded-lg transition">
+                            {% translate "Back" %}
+                        </button>
+                    </a>
+                    <div class="">
+                        <button type="submit" class="dark:bg-cyan-500 dark:hover:bg-cyan-400 bg-orange-500 hover:bg-orange-400 text-white text-xs mt-2 px-6 py-2 rounded-lg transition">
+                            {% translate "Next" %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
