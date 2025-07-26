@@ -1,0 +1,22 @@
+{% extends 'cyph3r/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block content %}
+<div class="bg-gradient-to-b from-orange-100 via-orange-50 to-white dark:bg-gradient-to-b dark:from-slate-400 dark:via-slate-600 dark:to-slate-800 flex flex-col min-h-screen justify-center items-center w-full"> 
+    <div id="container" class="bg-white dark:bg-slate-800 shadow-md rounded-lg px-8 py-4 max-w-4xl w-full">
+        <div class="w-full p-1 dark:text-white">
+                <h1 class="text-xl font-semibold text-center dark:text-white text-gray-700 leading-8 font-sans ">{% translate "Server Error (500)" %}</h1>
+                <div class="text-gray-600 dark:text-white font-sans text-md mt-4 mb-4">
+                    <p class="pb-4">{% translate "Oops, an unexpected error has occured!" %}</p>
+                    
+                    <p class="pt-4 pb-4">{% translate "Please try again sometime later." %}</p>
+                </div>
+
+                <a href="{% url 'index' %}" class="text-orange-500 dark:text-cyan-500">{% translate "Go back to the homepage" %}</a>     
+               
+        </div>
+    </div>
+</div>
+{% endblock %}

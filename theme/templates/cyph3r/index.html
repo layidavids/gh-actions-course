@@ -1,0 +1,52 @@
+{% extends 'cyph3r/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<section id="homepage" class="flex flex-col dl:flex-row 2xl:justify-center max-dl:justify-center max-dl:gap-12 justify-around items-center px-4 max-dl:w-full min-h-screen">
+    <div class="w-3/5  max-xl:max-w-md max-2xl:max-w-lg max-dl:w-full 2xl:max-w-2xl flex justify-center items-center flex-col text-center">
+        <h1 class="text-3xl max-dl:text-2xl 2xl:text-4xl w-full max-xl:w-96 font-semibold xl:text-nowrap dark:text-white text-slate-900">{% translate "The Cryptography" %}<span class="text-orange-600 dark:text-cyan-300 max-xl:flex justify-center max-xl:text-center">{% translate " Workshop." %}</span></h1>
+        <p class="text-slate-500 dark:text-slate-200 text-lg w-full 2xl:text-xl 2xl: xl:text-nowrap text-center max-xl:w-96 font-sans pt-3">{% translate "Your cryptography tooklit, simplified!" %}</p>
+        <div class="flex justify-center self-center item-center font-pal max-xl:w-96 mt-12 max-dl:mt-6 gap-16">
+            <div>
+                <p class="text-lg text-center max-2xl:text-sm font-serif font-semibold text-orange-600 dark:text-cyan-300">{{ keys_generated }}</p>
+                <p class="text-slate-500 dark:text-slate-200 max-2xl:text-sm font-serif text-sm text-center">{% translate "Keys" %}<br />{% translate "Generated" %}</p>
+            </div>
+            <div>
+                <p class="text-lg text-center max-2xl:text-sm font-serif font-semibold text-orange-600 dark:text-cyan-300">{{ key_shares }}</p>
+                <p class="text-slate-500 dark:text-slate-200 max-2xl:text-sm font-serif text-sm">{% translate "Keys" %} <br />{% translate "Reconstructed | Split" %}</p>
+            </div>
+            <div>
+                <p class="text-lg font-semibold max-2xl:text-sm font-serif text-center text-orange-600 dark:text-cyan-300">{{ files_encrypted }}</p>
+                <p class="text-slate-500 dark:text-slate-200 max-2xl:text-sm text-sm font-serif text-center">{% translate "Data Contents" %} <br />{% translate "Encrypted | Decrypted" %}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-3/5 max-w-xl grid max-dl:w-full max-dl:grid-cols-2 justify-center items-center gap-4">
+        <a href="{% url 'token-gen-info' %}" class="group block w-full mx-auto rounded-lg max-dl:p-4 p-6 bg-white ring-1 ring-slate-900/5 shadow-lg hover:bg-orange-500 hover:ring-orange-500 dark:bg-slate-800 space-y-3 dark:ring-cyan-900/5 dark:hover:bg-cyan-500  dark:hover:ring-cyan-500">
+            <div class="flex items-center space-x-3">
+                <h3 class="text-slate-900 dark:text-slate-100 group-hover:text-white text-sm text-center font-semibold">{% translate "Token Generation" %}</h3>
+            </div>
+            <p class="text-slate-500 dark:text-slate-200 group-hover:text-white text-xs">{% translate "Keys | Passwords | URL-strings" %}</p>
+        </a>
+        <a href="{% url 'key-share-intro' %}" class="group block w-full mx-auto rounded-lg max-dl:p-4 p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-orange-500 hover:ring-orange-500 dark:bg-slate-800 dark:ring-cyan-900/5 dark:hover:bg-cyan-500  dark:hover:ring-cyan-500">
+            <div class="flex items-center space-x-3">
+                <h3 class="text-slate-900 dark:text-slate-100 group-hover:text-white text-sm font-semibold">{% translate "Key Shares" %}</h3>
+            </div>
+            <p class="text-slate-500 dark:text-slate-200 group-hover:text-white text-xs">{% translate "Splitting | Reconstruction" %}</p>
+        </a>
+        <a href="{% url 'data-protect-info' %}" class="group block w-full mx-auto rounded-lg max-dl:p-4 p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-orange-500 hover:ring-orange-500 dark:bg-slate-800 dark:ring-cyan-900/5 dark:hover:bg-cyan-500  dark:hover:ring-cyan-500">
+            <div class="flex items-center space-x-3">
+                <h3 class="text-slate-900 dark:text-slate-100 group-hover:text-white text-sm font-semibold">{% translate "Data Protection" %}</h3>
+            </div>
+            <p class="text-slate-500 dark:text-slate-200 group-hover:text-white text-xs">{% translate "Encryption | Decryption" %}</p>
+        </a>
+        <a href="{% url 'wireless-ceremony-intro' %}" class="group block w-full mx-auto rounded-lg max-dl:p-4 p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-orange-500 hover:ring-orange-500 dark:bg-slate-800 dark:ring-cyan-900/5 dark:hover:bg-cyan-500  dark:hover:ring-cyan-500">
+            <div class="flex items-center space-x-3">
+                <h3 class="text-slate-900 dark:text-slate-100 group-hover:text-white text-sm font-semibold">{% translate "Sample Key Ceremony" %}</h3>
+            </div>
+            <p class="text-slate-500 dark:text-slate-200 group-hover:text-white text-xs">{% translate "Automate key creation" %}</p>
+        </a>
+        <div>
+</section>
+{% endblock %}

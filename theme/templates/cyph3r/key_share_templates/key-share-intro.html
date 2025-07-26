@@ -1,0 +1,35 @@
+{% extends 'cyph3r/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="bg-gradient-to-b from-orange-100 via-orange-50 to-white dark:bg-gradient-to-b dark:from-slate-400 dark:via-slate-600 dark:to-slate-800 flex flex-col min-h-screen justify-center items-center w-full">
+    <div id="container" class="bg-white dark:bg-slate-800 ring-1 ring-slate-50 text-sans dark:ring-slate-800 dark:text-whiteshadow-md rounded-lg px-8 py-2 pt-2 mt-3 max-w-4xl w-full">
+        <div class="w-full p-2">
+                <h1 class="text-lg font-bold text-center font-sans pb-3 dark:text-white text-black">{% translate "Key Sharing" %}</h1>
+                    <p class="text-sm font-sans text-gray-600 dark:text-slate-300 pb-1">{% translate "Key sharing or splitting, also known as secret sharing, refers to a cryptographic technique where a secret (such as a cryptographic key) is divided into multiple parts, or shares, and distributed among participants." %}</p>
+                    <p class="text-sm font-sans text-gray-600 dark:text-slate-300 pb-1">{% translate "The key idea behind this process is that no single share reveals enough information to reconstruct the original secret. This app supports the following schemes for key sharing:" %}</p>
+
+                    <h3 class="font-semibold pt-2 font-sans dark:text-white text-sm">{% translate "Shamir's Secrets Sharing" %}</h3>
+                        <p class="text-xxs text-gray-600 dark:text-slate-300 font-sans">{% translate "This app only supports splitting" %}<span class="font-bold">128 bit</span>{% translate " keys using Shamir's secret sharing. The key can be broken into n shares and a minimum of m shares (m < n) otherwise known as the threshold is required for key reconstruction." %}</p>
+
+                    <h3 class="font-semibold pt-2 font-sans dark:text-white text-sm">{% translate "Xor-based Key Splitting" %}</h3>
+                        <p class="text-xxs text-gray-600 dark:text-slate-300 font-sans">{% translate "A much simpler approach than Shamir is using the XOR or bitwise operation to split a secret. All the shares are required to reconstruct the secret." %}</p>
+                                
+                    <p class="text-sm text-gray-600 dark:text-slate-300 font-sans pt-4">{% translate "The assumption is the key shares are also expected to remain secret. Consequently, every key splitting operation requires PGP public files to be uploaded. The number of files to be uploaded must be the same number as that of the shares to be created." %}</p>
+
+                    <p class="text-sm text-gray-600 dark:text-slate-300 font-sans pt-2">{% translate "Key reconstruction operations require only a single PGP file to be uploaded." %}</p>
+
+                    <p class="text-sm text-gray-600 dark:text-slate-300 font-sans pt-2">{% translate "This app only accepts PGP public key files that are in the " %}<strong>{% translate "ASCII armored format" %}</strong>{% translate " i.e. the contents of each public key file must have the begin and end headers of" %}   
+                        <span class="bg-gray-200 dark:border-gray-700 dark:bg-gray-700 px-1 text-sm font-sans border dark:text-slate-300 border-gray-300 rounded shadow-md text-gray-800">-----
+                        BEGIN PGP PUBLIC KEY BLOCK-----</span> and <span class="bg-gray-200 border dark:text-slate-300 dark:bg-gray-700 dark:border-gray-700 border-gray-300 b-1 px-1 text-xxs font-sans rounded shadow-md text-gray-800">-----END PGP PUBLIC KEY BLOCK-----</span>{% translate " respectively." %}</li></ul></p>
+                </div>
+                <!-- Submit Button -->
+                <a href="{% url 'key-share-info' %}" class="flex justify-end pt-3 pb-3">
+                    <button type="button" hx-get="{% url 'key-share-info' %}" hx-trigger="click" hx-swap="outerHTML" hx-target="#form"  class="dark:bg-cyan-500 dark:hover:bg-cyan-400 bg-orange-500 hover:bg-orange-400 text-white text-sm px-3 pt-2 mb-2 pb-2 rounded-lg transition">
+                        {% translate "Get Started" %}
+                    </button>
+                </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'cyph3r/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% load i18n %}
+
+{% block content %}
+<div class="bg-gradient-to-b from-orange-100 via-orange-50 to-white dark:bg-gradient-to-b dark:from-slate-400 dark:via-slate-600 dark:to-slate-800 flex flex-col min-h-screen justify-center items-center w-full">
+    <div class="w-full justify-center items-start flex flex-col gap-4 max-w-md p-8 shadow-md dark:bg-slate-800 bg-white rounded-lg">
+        <div>
+            <p class="text-start dark:text-white font-font-sans font-semibold text-xs">{% translate "Downloads" %}</p>
+
+            <a href="{{ MEDIA_URL }}{{ request.session.session_key }}/{{ data_protect_file }}" download="{{ data_protect_file }}" class="w-full mt-4 underline underline-offset-4 font-palanquin  decoration-blue-600 text-blue-600 text-xs">
+                {{ data_protect_file }}
+            </a>
+        </div>              
+    </div>
+</div>
+{% endblock %}
