@@ -22,9 +22,9 @@ jobs:
 
             - name: Generate Django Secret Key
               run: |
-                    DJANGO_SECRET_KEY=$(python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())")
-                    echo "DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY" >> $GITHUB_ENV
-                    
+                    DJANGO_DEV_SECRET_KEY=$(python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())")
+                    echo "DJANGO_DEV_SECRET_KEY=$DJANGO_DEV_SECRET_KEY" >> $GITHUB_ENV
+
             - name: Run migrations
               run: python manage.py migrate --noinput
 
