@@ -30,6 +30,9 @@ jobs:
 
             - name: Run migrations
               run: python manage.py migrate --noinput
+            
+            - name: Create Media Folder
+              run: mkdir -p media
 
             - name: Run tests
               run: pytest --maxfail=1 --disable-warnings -q
